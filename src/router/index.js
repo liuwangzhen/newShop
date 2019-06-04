@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import first from '@/pages/first/first'
 import detail from '@/pages/detail/detail'
 import shop from '@/pages/shop/shop'
+import shopdetail from '@/pages/shopdetail/shopdetail'
 import mine from '@/pages/mine/mine'
 import App from '../App'
 Vue.use(Router)
@@ -33,6 +34,11 @@ export default new Router({
             path:'/mine',
             name:'mine',
             component:mine,
+        },
+        {
+            path:'/shopdetail',
+            name:'shopdetai',
+            component:shopdetail,
         },
 
     ],

@@ -74,4 +74,13 @@ export default {
   .rad{
     border-radiu:50%;
   }
+.bgf5f{
+  background-color: #f5f5f5;
+}
+.minh{
+  min-height: 100vh;
+}
+.pb60{
+  padding-bottom: 60px;
+}
 </style>

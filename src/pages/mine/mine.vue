@@ -1,5 +1,5 @@
 <template>
-    <div></div>
+    <div>暂时啥都没有</div>
 </template>
 
 <script>

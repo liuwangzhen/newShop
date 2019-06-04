@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="pb20">
         <van-nav-bar
                 title="生如夏花"
                 left-arrow
@@ -68,6 +68,9 @@
 <style scoped>
     .ml20{
         margin-left:20px;
+    }
+    .pb20{
+        padding-bottom: 20px;
     }
     .ml30{
         margin-left: 30px;
