@@ -24,6 +24,9 @@ export default new Router({
             path:'/detail',
             name:'detail',
             component:detail,
+            meta:{
+                keepAlive:true
+            }
         },
         {
             path:'/shop',

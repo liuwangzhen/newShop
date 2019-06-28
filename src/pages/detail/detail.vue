@@ -25,15 +25,13 @@
 </template>
 
 <script>
-
     export default {
         name: "detail",
         data:function () {
             return{
-                detail:"dasf",
                 list:['https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559285127333&di=6006c4c8499f2bfda35e181f4b2490a8&imgtype=0&src=http%3A%2F%2Fwx2.sinaimg.cn%2Forj360%2F007xTlCBly1fyud2l8x8kj30rs6etb2a.jpg',"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559305275925&di=bd470cc42f09e373839cd6e304876096&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201605%2F07%2F20160507191419_J2m8R.thumb.700_0.jpeg"],
                 height1:"auto",
-                options:this.$route.query.options
+                options:{}
             }
         },
         methods:{
@@ -52,15 +50,23 @@
 
         },
         created:function () {
-            this.list.unshift(this.$route.query.options.src)
+            console.log(JSON.parse(localStorage.getItem('keys')))
+            var keys=JSON.parse(localStorage.getItem('keys'))
+            this.list.unshift(keys.src)
+            this.options=keys
             var image = new Image()
-            image.src=this.$route.query.options.src
+            image.src=keys.src
             var pix=image.height/image.width
             this.height1=100*pix+'vw'
         },
+
+        updated:function () {
+
+        },
         mounted:function () {
 
-        }
+        },
+
     }
 
 </script>

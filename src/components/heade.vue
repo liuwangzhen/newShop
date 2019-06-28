@@ -1,14 +1,17 @@
 <template>
     <div>
-    <div>你是猪</div>
-        <slot></slot>
+    <div>{{msg}}</div>
     <slot name="one"></slot>
+
     </div>
 </template>
 
 <script>
     export default {
-        name: "heade"
+        name: "heade",
+        props:{
+            msg: String,
+        }
     }
 </script>
 

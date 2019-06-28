@@ -14,12 +14,19 @@ import { Row, Col,Dialog,Lazyload,Button,
     Image,
     Icon,
     Swipe,SwipeItem,
-    Tabbar, TabbarItem} from 'vant';
+    Tabbar, TabbarItem,Tag, GoodsAction,
+    GoodsActionIcon,
+    GoodsActionButton,
+    Toast} from 'vant';
+
 
 
 
 Vue.use(VueAxios,axios);
-Vue.use(Row).use(Col).use(Dialog).use(Lazyload).use(Image).use(Button).use(NavBar).use(Search).use(SwipeCell).use(Cell).use(CellGroup).use(Tab).use(Tabs).use(Icon).use(Swipe).use(SwipeItem).use(Tabbar).use(TabbarItem);
+Vue.use(Row).use(Col).use(Dialog).use(Lazyload).use(Image).use(Button).use(NavBar).use(Search).use(SwipeCell).use(Cell).use(CellGroup).use(Tab).use(Tabs).use(Icon).use(Swipe).use(SwipeItem).use(Tabbar).use(TabbarItem).use(Tag).use(GoodsAction)
+    .use(GoodsActionIcon)
+    .use(GoodsActionButton)
+    .use(Toast);
 new Vue({
     router,store,
   render: h => h(App)

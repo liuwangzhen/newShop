@@ -1,6 +1,6 @@
 <template>
     <div>
-        <heade><span slot style="color:blue">是pig</span></heade>
+        <heade><span slot style="color:blue" msg="你是嘛">是pig</span></heade>
         <div class="s0">
 
         <div @click="goBack">fanhui</div>
@@ -58,19 +58,13 @@
                 addAge:'add',
                 reduce:'red',
             }),
-            // addAction:function () {
-            //     this.$store.dispatch('addAction',{n:20})
-            // }
             ...mapActions({
                 addAction:'addAction'
             }),
 
         },
         computed:{
-            arr(){ return 12321 },
-            ...mapState({
-            count:"age"
-        })
+
         }
 
     }

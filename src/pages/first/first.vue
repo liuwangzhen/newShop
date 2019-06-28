@@ -1,20 +1,21 @@
 <template>
     <div class="bgf5f minh pb60">
+        <div class="top-fix bgfff">
         <van-nav-bar
                      title="欢迎来到我的世界"
                      :border="false"
+                     z-index="114"
         >
-
         </van-nav-bar>
-
-
        <van-search placeholder="请输入关键词"
                    shape="round"
                    v-model="value"
                    show-action>
            <div slot="action"  @click="onSearch">搜索</div>
        </van-search>
-        <van-tabs v-model="idx" @click="onClick" :right-width="0" :left-width="0">
+        </div>
+        <div class="padding"></div>
+        <van-tabs  v-model="idx" @click="onClick" :right-width="0" :left-width="0">
 
              <van-tab v-bind:key="i" :title="n" v-for="(n,i) in titles">
                  <div class="row">
@@ -76,9 +77,17 @@
     </div>
 </template>
 <script>
+    var ComponentA={
+        /*
+        <div class="red">saa</div>
+        */
+    }
     export default {
-      components:{
+        name: "first",
+        components:{
+            'component-a': ComponentA,
       },
+
         data(){
           return{
               show: false,
@@ -106,7 +115,7 @@
                   id: "3",
                   kind: "3",
                   like: "1314",
-                  src: "https://img.yzcdn.cn/vant/cat.jpeg",
+                  src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559637176591&di=8480730f4b9a57f227b9e40be68f8652&imgtype=0&src=http%3A%2F%2Fpic2.16pic.com%2F00%2F00%2F00%2F16pic_778_b.jpg",
               },
                   {author: "白居易",
                       content: "猗与漆沮，潜有多鱼。有鳣有鲔，鲦鲿鰋鲤。以享以祀，以介景福。",
@@ -127,7 +136,7 @@
                       id: "2",
                       kind: "5",
                       like: "120",
-                      src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1560224213&di=5155bcb3875db3b6047f5318f99abba2&imgtype=jpg&er=1&src=http%3A%2F%2Fuploads.xuexila.com%2Fallimg%2F1706%2F28-1F630160140.jpg"}],
+                      src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559637118383&di=628d52587da439e22f2c4e34c38060a3&imgtype=0&src=http%3A%2F%2Fimg.zxxk.com%2F2017-5%2FZXXKCOM201705091504053061463.jpg"}],
               list:this.list0,
               active:0,
           }
@@ -145,7 +154,6 @@
                         this.list=this.list0
                         break;
                     case 1:
-                        // this.$options.methods.getAxios.bind(this)(1);
                         this.list=this.list0.filter(isBigEnough);
                         break;
                     case 2:
@@ -172,6 +180,7 @@
                     });
             },
             goDetail:function (e) {
+               localStorage.setItem('keys',JSON.stringify(e))
                 this.$router.push({path:'/detail', query:{options:e}});
 
             }
@@ -189,7 +198,11 @@
         },
         created:function () {
             this.list=this.list0
+            this.$store.commit('moduleA/add2')
+            console.log(this.$store.state.moduleA.age2)
+            console.log(this.$store.state.age)
         },
+
         mounted:function(){
 
         }
@@ -199,6 +212,11 @@
 <style scoped>
 
     /*导航*/
+    .top-fix{
+        position: fixed;
+        z-index: 114;
+        width: 100%;
+    }
     .van-nav-bar .van-icon {
         color: #000;
     }
@@ -230,6 +248,17 @@
 
 
     /*tab*/
+    .padding{
+        padding-top: 111px;
+    }
+    .van-tabs__wrap--scrollable .van-tabs__nav{
+        position: fixed;
+        top: 111px;
+        right: 0;
+        left: 0;
+        z-index: 99;
+        overflow: hidden;
+    }
     .van-tab--active {
         font-weight: 600;
         letter-spacing: 2px;

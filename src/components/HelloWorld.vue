@@ -21,11 +21,12 @@ export default {
     data:function () {
         return {
             visible:true,
-            isShow:true,
+
         }
     },
   props: {
-    msg: String
+    msg: String,
+      isShow:Boolean,
   },
     methods:{
 
